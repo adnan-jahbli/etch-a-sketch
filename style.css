@@ -126,14 +126,22 @@ button:hover {
 
 /* Style the color input to fill the container */
 input[type="color"] {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 40px;
     border: none;
     outline: none;
     cursor: pointer;
 }
 
-
 .rounded-color-input:hover {
     transform: scale(1.05);
+}
+
+.coloring {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 550;
+    width: 230px;
 }

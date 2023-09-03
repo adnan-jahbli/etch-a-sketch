@@ -3,14 +3,21 @@ let div;
 let container = document.querySelector('.container');
 let choosedColor = "#4C4C6D";
 let colorButtonClicked = true;
+let rainbowButtonClicked = false;
 let rangeInput = document.getElementById('rangeInput');
 let inputValue = document.querySelector('.inputValue');
 let pickAColor = document.getElementById('pickAColor');
+let backColor = document.getElementById('backColor');
+let choosedBackColor = "#FFFFFF";
 
 // Listening for the color input element's value
 pickAColor.addEventListener('input', function () {
     choosedColor = pickAColor.value;
     listeningToDivs(choosedColor);
+});
+backColor.addEventListener('input', function () {
+    choosedBackColor = backColor.value;
+    container.style.backgroundColor = choosedBackColor;
 });
 
 function createDivs(n) {
@@ -27,7 +34,15 @@ function createDivs(n) {
 
 // coloring the divs
 function changeBackgroudColor(div, color) {
-    div.setAttribute('style', `background-color: ${color};`);
+    if (color) {
+        div.setAttribute('style', `background-color: ${color};`);
+    }  
+    else {
+        const randomRed = Math.floor(Math.random() * 256);
+        const randomGreen= Math.floor(Math.random() * 256);
+        const randomBlue = Math.floor(Math.random() * 256);
+        div.setAttribute('style', `background-color: rgb(${randomRed}, ${randomGreen}, ${randomBlue})`);
+    }
 }
 
 function listeningToDivs(color) {
@@ -69,12 +84,15 @@ rangeInput.addEventListener('input', function () {
     if (colorButtonClicked) {
         listeningToDivs(choosedColor);
     }
+    else if (rainbowButtonClicked) {
+        listeningToDivs(null);
+    }
 });
 
 createDivs(value);
 listeningToDivs(choosedColor);
 
-// clearing the container if clear button is clicked
+// clearing the container if clear button was clicked
 let clearButton = document.querySelector('.clearButton');
 
 clearButton.addEventListener('click', function () {
@@ -82,20 +100,31 @@ clearButton.addEventListener('click', function () {
     divs.forEach(div => changeBackgroudColor(div, 'none'));
 });
 
-// errasing if eraser button is clicked
+// errasing if eraser button was clicked
 let eraserButton = document.querySelector('.eraserButton');
 
-eraserButton.addEventListener('click', function () {
+eraserButton.addEventListener('click', function() {
     colorButtonClicked = false;
-    listeningToDivs('#fff');
+    rainbowButtonClicked = false;
+    listeningToDivs(choosedBackColor);
 });
 
-// Switch to color mode if eraser button is clicked
+// Switch to color mode if eraser button was clicked
 let colorButton = document.querySelector('.colorButton');
 
-colorButton.addEventListener('click', function () {
+colorButton.addEventListener('click', function() {
     colorButtonClicked = true;
+    rainbowButtonClicked = false;
     listeningToDivs(choosedColor);
+});
+
+// Switch to rainbow mode if rainobow buttons was clicked
+let rainbowButton = document.querySelector('.rainbowButton');
+
+rainbowButton.addEventListener('click', function() {
+    colorButtonClicked = false;
+    rainbowButtonClicked = true;
+    listeningToDivs(null);
 });
 
 // selecting the color button by default
