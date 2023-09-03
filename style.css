@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+body {
+    background-color: #E8F6EF;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 30px;
+    color: #1B9C85;
+    grid-column: 1/4;
+}
+
+.container {
+    display: grid;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    height: 700px;
+    width: 600px;
+    margin: 30px auto;
+    grid-column: 2/3;
+}
+
+.containerSize {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.leftSide {
+    margin-top: 30px;
+    grid-column: 1/2;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+footer {
+    font-size: 20px;
+    color: #1B9C85;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 20px;
+    grid-column: 1/4;
+}
+
+#rangeInput {
+    /* Track color */
+    --track-color: white;
+    /* Thumb (slider) color */
+    --thumb-color: #545B77;
+
+    /* Set the width and height of the thumb (slider) */
+    width: 200px;
+    height: 40px;
+
+    /* Remove the default appearance */
+    appearance: none;
+    background: transparent;
+}
+
+#rangeInput::-webkit-slider-runnable-track {
+    /* Track color */
+    background: var(--track-color);
+    border-radius: 5px;
+    border: 0.5px solid black;
+    height: 10px;
+}
+
+#rangeInput::-webkit-slider-thumb {
+    /* Thumb (slider) color */
+    -webkit-appearance: none;
+    background: var(--thumb-color);
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    position: relative;
+    bottom: 8px;
+}
+
+/* Style for Firefox */
+#rangeInput::-moz-range-thumb {
+    /* Thumb (slider) color */
+    background: var(--thumb-color);
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    position: relative;
+    bottom: 8px;
+}
+
+button {
+    width: 200px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #4C4C6D;
+    color: #4C4C6D;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.selectedButton {
+    background-color: #4C4C6D;
+    color: white;
+}
