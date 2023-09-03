@@ -112,6 +112,7 @@ button {
     color: #4C4C6D;
     border-radius: 8px;
     cursor: pointer;
+    outline: none;
 }
 
 button:hover {
@@ -121,4 +122,18 @@ button:hover {
 .selectedButton {
     background-color: #4C4C6D;
     color: white;
+}
+
+/* Style the color input to fill the container */
+input[type="color"] {
+    width: 80px;
+    height: 80px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.rounded-color-input:hover {
+    transform: scale(1.05);
 }

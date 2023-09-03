@@ -1,11 +1,17 @@
 let value = 16;
 let div;
 let container = document.querySelector('.container');
-const choosedColor = "#4C4C6D";
+let choosedColor = "#4C4C6D";
 let colorButtonClicked = true;
-
 let rangeInput = document.getElementById('rangeInput');
 let inputValue = document.querySelector('.inputValue');
+let pickAColor = document.getElementById('pickAColor');
+
+// Listening for the color input element's value
+pickAColor.addEventListener('input', function () {
+    choosedColor = pickAColor.value;
+    listeningToDivs(choosedColor);
+});
 
 function createDivs(n) {
     container.setAttribute("style", `grid-template-columns: repeat(${n}, 1fr); grid-template-rows: repeat(${n}, 1fr);`);
@@ -19,29 +25,27 @@ function createDivs(n) {
     }
 }
 
-/* ------------------------------------------------------------- */
 // coloring the divs
 function changeBackgroudColor(div, color) {
     div.setAttribute('style', `background-color: ${color};`);
 }
 
 function listeningToDivs(color) {
-    let isMouseDown = false;
     let divs = document.querySelectorAll('.inDiv');
 
-    document.body.onmousedown = () => { isMouseDown = true };
-    document.body.onmouseup = () => { isMouseDown = false };
-
     divs.forEach(div => {
-        div.addEventListener('mouseover', function () {
-            // console.log('mouseover event: isMouseDown = ' + isMouseDown);
-            if (isMouseDown) {
+        // Preventing dragging elements issue
+        div.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+
+        div.addEventListener('mouseover', function (e) {
+            if (e.buttons === 1) {
                 changeBackgroudColor(div, color);
             }
         });
 
-        div.addEventListener('mousedown', function () {
-            // console.log('mousedown event: isMouseDown = ' + isMouseDown);
+        div.addEventListener('mousedown', function (e) {
             changeBackgroudColor(div, color);
         });
     });
