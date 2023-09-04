@@ -14,6 +14,6 @@ Unleash your inner artist with our pixel sketch app.
 - Share your artwork with the world by exporting images.
 - Correct mistakes with an undo tool, ensuring your creations are flawless.
 
-**[Experience the Live App](https://adnan-jahbli.github.io/esketch/)**
+**[Experience the Live App](https://adnan-jahbli.github.io/etch-a-sketch)**
 
 ![App Preview](https://raw.githubusercontent.com/adnan-jahbli/etch-a-sketch/main/page-screenshot.jpg)
