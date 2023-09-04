@@ -10,24 +10,29 @@
     <body>
         <h1>Etch-a-sketch</h1>
         <div class="leftSide">
-            <div class="containerSize">
-                <p class="inputValue">16 x 16</p>
-                <input id="rangeInput" type="range" value="16" min="1" max="100">
+            <div class="sizeAndColoring">
+                <div class="containerSize">
+                    <p class="inputValue">16 x 16</p>
+                    <input id="rangeInput" type="range" value="16" min="1"
+                        max="100">
+                </div>
+
+                <div class="coloring">
+                    <input type="color" value="#4C4C6D" id="pickAColor">
+                    <p>Pen color</p>
+                </div>
+                <div class="coloring">
+                    <input type="color" value="#FFFFFF" id="backColor">
+                    <p>Backgorund color</p>
+                </div>
             </div>
 
-            <div class="coloring">
-                <input type="color" value="#4C4C6D" id="pickAColor">
-                <p>Pen color</p>
+            <div class="buttons">
+                <button class="colorButton button">Color Mode</button>
+                <button class="rainbowButton button">Rainbow Mode</button>
+                <button class="eraserButton button">Eraser</button>
+                <button class="clearButton">Clear</button>
             </div>
-            <div class="coloring">
-                <input type="color" value="#FFFFFF" id="backColor">
-                <p>Backgorund color</p>
-            </div>
-
-            <button class="colorButton button">Color Mode</button>
-            <button class="rainbowButton button">Rainbow Mode</button>
-            <button class="eraserButton button">Eraser</button>
-            <button class="clearButton">Clear</button>
         </div>
         <div class="container" draggable="false"></div>
         <footer>Copyright © 2023 adnane.ja<br>All rights reserved.</footer>
